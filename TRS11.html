@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIRADORESS | Emergency Hamburg</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap');
+
+    :root {
+      --red: #ff0000;
+      --blue: #00b7ff;
+    }
+
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #1a001a);
+      color: #ffffff;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--red), var(--blue));
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 183, 255, 0.3);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 15px;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { 
+      color: #000; 
+      text-shadow: 0 0 10px white; 
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 80px;
+      margin-top: 70px;
+    }
+
+    .trs-logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 8rem;
+      font-weight: 900;
+      letter-spacing: 10px;
+      background: linear-gradient(90deg, #ff0000, #00b7ff, #ff0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 50px rgba(0, 183, 255, 0.9);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+
+    .join-btn {
+      background: linear-gradient(90deg, var(--red), var(--blue));
+      color: white;
+      padding: 16px 45px;
+      font-size: 1.35rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.4s;
+    }
+
+    .join-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(0, 183, 255, 0.9);
+    }
+
+    section { 
+      padding: 80px 15px; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 45px;
+      background: linear-gradient(90deg, var(--red), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-text {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    /* Ranks - More Systematic & Clean */
+    .ranks-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .ranks-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .ranks-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .rank-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(0, 183, 255, 0.35);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      font-size: 1.25rem;
+    }
+
+    .rank-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue);
+      box-shadow: 0 0 25px rgba(0, 183, 255, 0.4);
+    }
+
+    .rank-card h3 {
+      color: #00ddff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* Rules */
+    .rules-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .rules-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .rules-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(0, 183, 255, 0.3);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .rules-box h3 {
+      color: #00ddff;
+      margin-bottom: 22px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .rules-box li {
+      margin: 12px 0;
+      font-size: 1.13rem;
+    }
+
+    footer {
+      background: #0a0a0a;
+      padding: 50px 20px;
+      text-align: center;
+      border-top: 4px solid var(--blue);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      .trs-logo { font-size: 5.8rem; letter-spacing: 6px; }
+      .hero h1 { font-size: 2.1rem; }
+      .hero p { font-size: 1.25rem; }
+      h2 { font-size: 2.5rem; }
+      .nav-links { gap: 12px; font-size: 0.95rem; }
+      .rank-card { padding: 24px 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">TIRADORESS</div>
+      <div class="nav-links">
+        <a href="#about">About Us</a>
+        <a href="#ranks">Ranks</a>
+        <a href="#join">Join Us</a>
+        <a href="#rules">Rules</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <div class="trs-logo">TRS</div>
+      <h1>TIRADORESS</h1>
+      <p>The Most Respected Criminal Family in Emergency Hamburg</p>
+      <button class="join-btn" onclick="window.open('https://discord.gg/Vd5f5m9yE', '_blank')">
+        JOIN DISCORD
+      </button>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about-text">
+      <p>
+        TIRADORESS (EH) is a powerful and highly respected criminal organization operating in the streets of Emergency Hamburg. 
+        Founded on the principles of loyalty, respect, and strength, we have grown into one of the most dominant gangs in the city.
+      </p>
+      <p style="margin-top: 20px;">
+        We stand together as a family — protecting our members, controlling territory, and executing high-level operations.
+      </p>
+      <p style="margin-top: 25px; font-weight: bold;">
+        <strong>Respect • Loyalty • Power • Unity</strong><br>
+        Once you join TIRADORESS, you become part of the family for life.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ranks - Clean & Systematic -->
+  <section id="ranks">
+    <h2>Our Ranks</h2>
+    <div class="ranks-grid">
+      <div class="rank-card"><h3>Tenyente Heneral</h3></div>
+      <div class="rank-card"><h3>Batang Heneral</h3></div>
+      <div class="rank-card"><h3>Koronel</h3></div>
+      <div class="rank-card"><h3>Kapitan</h3></div>
+      <div class="rank-card"><h3>Unang Tenyente</h3></div>
+      <div class="rank-card"><h3>Ikalawang Tenyente</h3></div>
+      <div class="rank-card"><h3>Sarhento Mayor</h3></div>
+      <div class="rank-card"><h3>Unang Sersan</h3></div>
+      <div class="rank-card"><h3>Sersan</h3></div>
+      <div class="rank-card"><h3>Korporal</h3></div>
+      <div class="rank-card"><h3>Nagsasanay</h3></div>
+      <div class="rank-card"><h3>Baguhang Tirador</h3></div>
+      <div class="rank-card"><h3>Members</h3></div>
+    </div>
+  </section>
+
+  <!-- Rules -->
+  <section id="rules">
+    <h2>Our Rules</h2>
+    <div class="rules-container">
+
+      <div class="rules-box">
+        <h3>Gang Rules</h3>
+        <ul>
+          <li>✅ Respect all higher ranks</li>
+          <li>✅ No betraying or snitching on the family</li>
+          <li>✅ Always support your brothers</li>
+          <li>✅ Be active in the game and Discord</li>
+          <li>✅ Represent TIRADORESS with pride</li>
+        </ul>
+      </div>
+
+      <div class="rules-box">
+        <h3>Community Rules</h3>
+        <ul>
+          <li>✅ No spamming on random chat</li>
+          <li>✅ Work as a team and support each other</li>
+          <li>✅ Treat everyone equally</li>
+          <li>✅ Always check the announcements</li>
+          <li>✅ No pictures in general chat</li>
+          <li>✅ Attend all training sessions and wars</li>
+          <li>✅ Do not share private information</li>
+          <li>✅ If leaving, explain your reason</li>
+          <li>✅ Spies will be dealt with by the owner</li>
+          <li>✅ Include "TRS" in your Roblox name</li>
+          <li>✅ Do not abuse privileges</li>
+          <li>✅ Report problems to the owner</li>
+          <li>✅ Always strive to contribute</li>
+          <li>✅ Be respectful to elders</li>
+          <li>✅ Maintain unity and never betray members</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Join Us -->
+  <section id="join" style="background: rgba(255,0,0,0.08); text-align: center;">
+    <h2>Join the Family</h2>
+    <p style="font-size: 1.35rem; margin: 25px 0 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+      Ready to run the streets with us?<br>
+      Join our Discord and complete the recruitment process.
+    </p>
+    <button class="join-btn" style="font-size: 1.5rem; padding: 18px 50px;" 
+            onclick="window.open('https://discord.gg/Vd5f5m9yE', '_blank')">
+      JOIN DISCORD NOW
+    </button>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 TIRADORESS • Emergency Hamburg</p>
+    <p style="margin-top: 15px;">
+      <strong>Discord:</strong> 
+      <a href="https://discord.gg/Vd5f5m9yE" target="_blank" style="color:#00b7ff;">discord.gg/Vd5f5m9yE</a>
+    </p>
+  </footer>
+
+</body>
+</html>
